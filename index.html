@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículo - Otoniel Fraga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --text: #334155;
+      --muted: #64748b;
+      --bg-tag: #f1f5f9;
+      --border: #e2e8f0;
+      --card-bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background-color: #f1f5f9;
+      line-height: 1.4;
+      font-size: 8.9pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Barra de Ações (Web) */
+    .action-bar {
+      width: 210mm;
+      margin: 20px auto 10px auto;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background-color: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-size: 8.8pt;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #1d4ed8;
+      box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--primary);
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .btn-secondary:hover {
+      background-color: #f8fafc;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+
+    /* Página A4 */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto 30px auto;
+      background: #ffffff;
+      padding: 9.5mm 13mm;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Cabeçalho */
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 7px;
+      margin-bottom: 8.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+    }
+
+    .header-left {
+      flex: 1;
+    }
+
+    .header-left h1 {
+      font-size: 19.5pt;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .header-left h2 {
+      font-size: 9.4pt;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 3px;
+      white-space: nowrap;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 7.9pt;
+      color: var(--muted);
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+
+    .header-right a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+
+    .header-right a:hover {
+      color: var(--accent);
+    }
+
+    .header-right div {
+      margin-bottom: 1px;
+    }
+
+    /* Seções */
+    section {
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 9.1pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .summary {
+      text-align: justify;
+      color: var(--text);
+      font-size: 8.4pt;
+      line-height: 1.36;
+    }
+
+    /* Experiência e Itens */
+    .item {
+      margin-bottom: 5.5px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.5px;
+    }
+
+    .item-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 8.7pt;
+    }
+
+    .item-company {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .item-date {
+      font-size: 7.8pt;
+      color: var(--muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    ul {
+      padding-left: 14px;
+      margin-top: 1.5px;
+    }
+
+    li {
+      margin-bottom: 1.5px;
+      font-size: 8.1pt;
+      line-height: 1.33;
+      color: var(--text);
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Grid de Competências */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5px 14px;
+    }
+
+    .skill-category {
+      font-size: 8.1pt;
+      line-height: 1.3;
+    }
+
+    .skill-category strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Grid de Projetos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 8px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 7px;
+      background-color: var(--card-bg);
+    }
+
+    .project-card-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 8.2pt;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-card-tech {
+      font-size: 7.1pt;
+      color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .project-card p {
+      font-size: 7.7pt;
+      color: var(--text);
+      margin-top: 2px;
+      line-height: 1.28;
+    }
+
+    /* Rodapé Duas Colunas (Educação + Idiomas/Certificações) */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 12px;
+    }
+
+    .bottom-col p {
+      font-size: 8.1pt;
+      line-height: 1.33;
+    }
+
+    /* Responsividade para Telas Mobile */
+    @media screen and (max-width: 820px) {
+      body {
+        background-color: #ffffff;
+      }
+      .action-bar {
+        width: 100%;
+        padding: 12px 16px 0 16px;
+        box-sizing: border-box;
+      }
+      .page {
+        width: 100%;
+        min-height: auto;
+        max-height: none;
+        padding: 16px;
+        box-shadow: none;
+        margin-bottom: 0;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .header-left h2 {
+        white-space: normal;
+      }
+      .header-right {
+        text-align: left;
+        white-space: normal;
+      }
+      .skills-grid, .projects-grid, .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+      .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Impressão / Exportação PDF (A4 Exato) */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+      html, body {
+        background: none;
+        margin: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .action-bar {
+        display: none !important;
+      }
+      .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        max-height: 297mm;
+        margin: 0;
+        padding: 9.5mm 13mm;
+        box-shadow: none;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        overflow: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Ações Web -->
+  <div class="action-bar">
+    <button class="btn btn-secondary" onclick="window.print()">
+      🖨️ Imprimir / Salvar PDF
+    </button>
+    <a href="Curriculo_Otoniel_Fraga.pdf" class="btn" download>
+      📥 Baixar PDF
+    </a>
+  </div>
+
+  <div class="page">
+    <header>
+      <div class="header-left">
+        <h1>Otoniel Fraga</h1>
+        <h2>Supervisor de TI & Desenvolvedor Full-Stack | Automação (BPA)</h2>
+      </div>
+      <div class="header-right">
+        <div>📍 Sobral, CE - Brasil &nbsp;|&nbsp; 📞 (88) 99611-6484</div>
+        <div>✉️ <a href="mailto:otonielsbf@gmail.com">otonielsbf@gmail.com</a></div>
+        <div>🔗 <a href="https://linkedin.com/in/otoniel-fraga" target="_blank" rel="noopener noreferrer">linkedin.com/in/otoniel-fraga</a> &nbsp;|&nbsp; 💻 <a href="https://github.com/otoniel-sys" target="_blank" rel="noopener noreferrer">github.com/otoniel-sys</a></div>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-title">Perfil Profissional</div>
+      <p class="summary">
+        Profissional de Tecnologia da Informação e Desenvolvedor Full-Stack com sólida experiência em liderança de infraestrutura corporativa e desenvolvimento de aplicações web, mobile e automação de processos (BPA). Atualmente <strong>Supervisor de TI na Dissobel</strong> e graduando em <strong>Engenharia de Computação pela UFC</strong>. Especialista em transformar gargalos operacionais e logísticos em soluções escaláveis utilizando <strong>Next.js, React, TypeScript, Flutter, Python, n8n, Docker e servidores Linux (Debian)</strong>.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-title">Competências Técnicas</div>
+      <div class="skills-grid">
+        <div class="skill-category"><strong>Front-End & Mobile:</strong> TypeScript, JavaScript, Next.js, React.js, React Native, Flutter (Dart), PWA, HTML5/CSS3.</div>
+        <div class="skill-category"><strong>Back-End & Bancos de Dados:</strong> Node.js, Python, PostgreSQL, Supabase (BaaS), Firebase, SQL, APIs RESTful, WebSockets.</div>
+        <div class="skill-category"><strong>Automação (BPA) & IA:</strong> n8n, Evolution API, Agentes de IA (OpenAI API / Flowise), Bots Assíncronos (Python).</div>
+        <div class="skill-category"><strong>Infraestrutura & Gestão:</strong> Servidores Linux (Debian), Docker, Redes Corporativas, Firewalls, Git/GitHub, Scrum/Kanban.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Experiência Profissional</div>
+      
+      <div class="item">
+        <div class="item-header">
+          <div><span class="item-title">Supervisor de TI</span> — <span class="item-company">Dissobel (Distribuidora Sobralense de Bebidas LTDA)</span>, Sobral, CE</div>
+          <div class="item-date">Fev 2024 – Presente</div>
+        </div>
+        <ul>
+          <li><strong>Supervisão de TI e Infraestrutura:</strong> Gestão de equipe e operação de TI, administração de servidores Linux (Debian), segurança, firewalls e manutenção da rede corporativa.</li>
+          <li><strong>Desenvolvimento de Sistemas Internos (Web & Mobile):</strong> Arquitetura de aplicações sob medida para logística, comercial e RH, incluindo Canal Seguro de Relatos para conformidade com a <strong>NR-1 (Next.js/Supabase)</strong> e aplicativo mobile de metas operacionais (<strong>Flutter/Firebase</strong>).</li>
+          <li><strong>Orquestração de Processos (BPA) e IA:</strong> Implementação de ecossistema containerizado (<strong>Docker, n8n, Evolution API</strong>) integrado a agentes LLM (GPT) para envio de indicadores e automação via WhatsApp.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div><span class="item-title">Bolsista de Transferência Tecnológica (BTT)</span> — <span class="item-company">FUNCAP / Startup BigDev</span>, Sobral, CE</div>
+          <div class="item-date">2022 (540 horas)</div>
+        </div>
+        <ul>
+          <li>Pesquisa aplicada, arquitetura e desenvolvimento de soluções tecnológicas voltadas à inovação de produto em ambiente de startup.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div><span class="item-title">Desenvolvedor de Software (Front-End & Mobile)</span> — <span class="item-company">Alan Araújo Eng. de Telecomunicações</span>, Sobral, CE</div>
+          <div class="item-date">Mar 2021 – Ago 2021</div>
+        </div>
+        <ul>
+          <li>Desenvolvimento de interfaces web e aplicações mobile responsivas utilizando <strong>React.js</strong> e <strong>React Native</strong>.</li>
+          <li>Consumo e integração de <strong>APIs RESTful</strong>, componentes modulares e gerenciamento de estados com <strong>Redux</strong> e <strong>Context API</strong>.</li>
+          <li>Controle de versão com <strong>Git</strong>, integração contínua (CI/CD) e atuação em ciclos de desenvolvimento ágil (Scrum/Kanban).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Projetos em Destaque</div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-card-title">
+            Canal Seguro de Relatos (NR-1)
+            <span class="project-card-tech">Next.js • Supabase • TS</span>
+          </div>
+          <p>Plataforma corporativa segura para relatos e conformidade com NR-1, com anonimato, auditoria e controle de acesso granular.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-card-title">
+            App de Metas Operacionais
+            <span class="project-card-tech">Flutter • Firebase • Dart</span>
+          </div>
+          <p>Aplicativo móvel para acompanhamento de metas logísticas e comerciais em tempo real com sincronização offline.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-card-title">
+            Automação de Processos & Bots (BPA)
+            <span class="project-card-tech">n8n • Docker • Python • IA</span>
+          </div>
+          <p>Pipelines automatizados via WhatsApp e ERP para distribuição de relatórios gerenciais, alertas e atendimento assistido por IA.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-card-title">
+            Sistemas de Gestão & Inventário
+            <span class="project-card-tech">React • Node.js • PostgreSQL</span>
+          </div>
+          <p>Módulos de gestão para frotas, EPIs e controle de estoque integrado a dashboards analíticos de suporte à tomada de decisão.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="bottom-grid">
+      <section class="bottom-col">
+        <div class="section-title">Formação Acadêmica</div>
+        <div class="item">
+          <div class="item-header">
+            <div><span class="item-title">Bacharelado em Engenharia de Computação</span></div>
+            <div class="item-date">Graduando</div>
+          </div>
+          <p style="font-size: 8.1pt; color: var(--accent); font-weight: 500;">Universidade Federal do Ceará (UFC) — Campus Sobral</p>
+        </div>
+      </section>
+
+      <section class="bottom-col">
+        <div class="section-title">Idiomas & Certificações</div>
+        <p style="font-size: 8.1pt; margin-bottom: 2px;"><strong>Idiomas:</strong> Português (Nativo), Inglês (Técnico p/ documentação).</p>
+        <p style="font-size: 8.1pt;"><strong>Especialidades:</strong> Arquitetura Cloud/Linux, Containerização Docker, Métodos Ágeis.</p>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
